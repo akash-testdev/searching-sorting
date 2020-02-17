@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .accordion 
+            {
+              background-color: #eee;
+              color: #444;
+              cursor: pointer;
+              padding: 18px;
+              width: 100%;
+              border: none;
+              text-align: left;
+              outline: none;
+              font-size: 15px;
+              transition: 0.4s;
+            }
+
+            .active, .accordion:hover 
+            {
+              background-color: #ccc;
+            }
+
+            .accordion:after 
+            {
+              content: '\002B';
+              color: #777;
+              font-weight: bold;
+              float: right;
+              margin-left: 5px;
+            }
+
+            .active:after 
+            {
+              content: "\2212";
+            }
+
+            .panel 
+            {
+              padding: 0 18px;
+              background-color: white;
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Searching & Sorting</h2>
+        <p>This page contains questions, answers and programs for searching and sorting.</p>
+        
+        <button class="accordion"><b>Linear Search</b><br>Explain the logic of linear search and implement code for it.</button>
+        <div class="panel">
+          <p>
+              Logic - Each element of the input array is compared with the element to be searched. If an array element matches the element to be searched, the position of the element is returned, else the search continues till the last element of the array. If the element to be searched is not present in the array -1 is returned. <br>
+              
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">public</span> <span style="color: #000080; font-weight: bold">int</span> linearSearch(<span style="color: #000080; font-weight: bold">int</span> a[], <span style="color: #000080; font-weight: bold">int</span> ele)
+{
+    <span style="color: #000080; font-weight: bold">int</span> n = a.<span style="color: #FF0000">length</span>;
+    <span style="color: #000080; font-weight: bold">for</span>(<span style="color: #000080; font-weight: bold">int</span> i=<span style="color: #0000FF">0</span>; i&lt;n; i++)
+    {
+        <span style="color: #000080; font-weight: bold">if</span>(a[i] == ele)
+            <span style="color: #000080; font-weight: bold">return</span> i+<span style="color: #0000FF">1</span>;
+    }
+    <span style="color: #000080; font-weight: bold">return</span> -<span style="color: #0000FF">1</span>;
+}
+</pre></div>
+          </p>
+        </div>
+
+        <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+
+    </body>
+</html>
