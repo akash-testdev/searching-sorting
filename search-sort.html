@@ -55,18 +55,60 @@
         <div class="panel">
           <p>
               Logic - Each element of the input array is compared with the element to be searched. If an array element matches the element to be searched, the position of the element is returned, else the search continues till the last element of the array. If the element to be searched is not present in the array -1 is returned. <br>
+              <br>
+              Initially, we take 2 pointers, left and right. The left pointer points to the first element and the right pointer points to the last element of the array. The right pointer remains fixed at the last element of the array. Each array element pointed by the left pointer is compared with the element to the searched,<br>
+              <br>
+              - If the match happens, the index of the left pointer is returned.<br>
+              - Else the left pointer is incremented to the next array element.<br>
+              <br>
+              This process gets repeated till the left pointer is &lt;= right pointer.<br>
               
-              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">public</span> <span style="color: #000080; font-weight: bold">int</span> linearSearch(<span style="color: #000080; font-weight: bold">int</span> a[], <span style="color: #000080; font-weight: bold">int</span> ele)
-{
-    <span style="color: #000080; font-weight: bold">int</span> n = a.<span style="color: #FF0000">length</span>;
-    <span style="color: #000080; font-weight: bold">for</span>(<span style="color: #000080; font-weight: bold">int</span> i=<span style="color: #0000FF">0</span>; i&lt;n; i++)
-    {
-        <span style="color: #000080; font-weight: bold">if</span>(a[i] == ele)
-            <span style="color: #000080; font-weight: bold">return</span> i+<span style="color: #0000FF">1</span>;
-    }
-    <span style="color: #000080; font-weight: bold">return</span> -<span style="color: #0000FF">1</span>;
-}
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">linearSearch1</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> a<span style="color: #333333">[],</span> <span style="color: #333399; font-weight: bold">int</span> ele<span style="color: #333333">)</span>
+<span style="color: #333333">{</span>
+  <span style="color: #333399; font-weight: bold">int</span> rightPointer <span style="color: #333333">=</span> a<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+  <span style="color: #008800; font-weight: bold">for</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> leftpointer<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> leftpointer<span style="color: #333333">&lt;=</span>rightPointer<span style="color: #333333">;</span> leftpointer<span style="color: #333333">++)</span>
+  <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">if</span><span style="color: #333333">(</span>a<span style="color: #333333">[</span>leftpointer<span style="color: #333333">]</span> <span style="color: #333333">==</span> ele<span style="color: #333333">)</span>
+      <span style="color: #008800; font-weight: bold">return</span> leftpointer<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+  <span style="color: #333333">}</span>
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+<span style="color: #333333">}</span>
 </pre></div>
+
+          </p>
+        </div>
+    
+        <button class="accordion"><b>Binary Search</b><br>Explain the logic of binary search and implement code for it.</button>
+        <div class="panel">
+          <p>
+              Logic - The first thing to remember is Binary search works only when the array is sorted. Initially we take 2 pointers, left and right pointing to the first and last element of the input array. Till left &lt;= right, we determine the middle element between the left and right pointers and compare it with the element to be searched. <br>
+              <br>
+              - In case the search element is equal to the middle element, we return the index of middle element.<br>
+              - In case the search element is greater than the middle element, we focus on the right part of the array by incrementing the left pointer to mid+1.  <br>
+              - In case the search element is lesser than the middle element, we focus on the left part of the array by decrementing the right pointer to mid-1. <br>
+              <br>
+              This process gets repeated till left &lt;= right.
+              
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">binarySearch</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> a<span style="color: #333333">[],</span> <span style="color: #333399; font-weight: bold">int</span> ele<span style="color: #333333">)</span>
+<span style="color: #333333">{</span>
+  <span style="color: #888888">//applicable only on sorted arrays</span>
+  <span style="color: #333399; font-weight: bold">int</span> leftPointer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+  <span style="color: #333399; font-weight: bold">int</span> rightPointer <span style="color: #333333">=</span> a<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+  <span style="color: #333399; font-weight: bold">int</span> midPointer<span style="color: #333333">;</span>
+  <span style="color: #008800; font-weight: bold">while</span><span style="color: #333333">(</span>leftPointer<span style="color: #333333">&lt;=</span>rightPointer<span style="color: #333333">)</span>
+  <span style="color: #333333">{</span>
+    midPointer <span style="color: #333333">=</span> <span style="color: #333333">(</span>leftPointer <span style="color: #333333">+</span> rightPointer<span style="color: #333333">)/</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">if</span><span style="color: #333333">(</span>ele <span style="color: #333333">&gt;</span> a<span style="color: #333333">[</span>midPointer<span style="color: #333333">])</span>
+      leftPointer <span style="color: #333333">=</span> midPointer <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span><span style="color: #333333">(</span>ele <span style="color: #333333">&lt;</span> a<span style="color: #333333">[</span>midPointer<span style="color: #333333">])</span>
+      rightPointer <span style="color: #333333">=</span> midPointer <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">else</span>
+      <span style="color: #008800; font-weight: bold">return</span> midPointer<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+  <span style="color: #333333">}</span>
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+<span style="color: #333333">}</span>
+</pre></div>
+  
           </p>
         </div>
 
