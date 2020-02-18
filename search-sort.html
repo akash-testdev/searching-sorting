@@ -63,7 +63,7 @@
               <br>
               This process gets repeated till the left pointer is &lt;= right pointer.<br>
               
-              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">linearSearch1</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> a<span style="color: #333333">[],</span> <span style="color: #333399; font-weight: bold">int</span> ele<span style="color: #333333">)</span>
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">linearSearch</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> a<span style="color: #333333">[],</span> <span style="color: #333399; font-weight: bold">int</span> ele<span style="color: #333333">)</span>
 <span style="color: #333333">{</span>
   <span style="color: #333399; font-weight: bold">int</span> rightPointer <span style="color: #333333">=</span> a<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
   <span style="color: #008800; font-weight: bold">for</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> leftpointer<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> leftpointer<span style="color: #333333">&lt;=</span>rightPointer<span style="color: #333333">;</span> leftpointer<span style="color: #333333">++)</span>
@@ -74,6 +74,8 @@
   <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
 <span style="color: #333333">}</span>
 </pre></div>
+            <br>
+            <b>Note:</b> Since we are moving into the concept of thinking everything in terms of pointers, notice that rightPointer is not kept equal to the length of the array, it is made to point to the last array element by keeping it equal to the length of the array minus 1. In the loop, we have taken care, that the left pointer goes all the way till it is equal to the right pointer and not ends one element before the right pointer.
 
           </p>
         </div>
