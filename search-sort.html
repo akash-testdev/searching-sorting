@@ -114,6 +114,38 @@
           </p>
         </div>
 
+        <button class="accordion"><b>Bubble Sort</b><br>Explain the logic of bubble sort and implement code for it.</button>
+        <div class="panel">
+          <p>
+              Logic - In bubble sort, every element of the array is compared to the next element. If the next element is smaller then the elements are swapped. In one complete iteration, the largest element in this way bubbles to the last position in the array. This process is repeated again starting from the first element of the array till the second last element. We do nnot consider the last element since we already know that it is the largest array element and has reached its desired position in the array.<br>
+              <br>
+              From the coding point of view, we maintain two pointers, left pointer and the right pointer initially pointing to the first and last array elements. With each iteration, the element at the left pointer is compared with the element next to it and in case the next element is samller, the elements are swapped and the left pointer is incremented. The left pointer continues to move towards the right till it reaches the right pointer. This is when the largest array element has reached the last index inn the array. The right pointer is now moved one position towards the left, the left poinnter is reset back to the first element of the array and the process is repeated till the left pointer again reaches the right pointer. This entire process is repeated N times, where N is the number of elements in the input array.
+              
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[]</span> <span style="color: #0066BB; font-weight: bold">bubbleSort</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> a<span style="color: #333333">[])</span>
+<span style="color: #333333">{</span>
+  <span style="color: #333399; font-weight: bold">int</span> rightPointer <span style="color: #333333">=</span> a<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+  <span style="color: #333399; font-weight: bold">int</span> n <span style="color: #333333">=</span> a<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">;</span>
+  <span style="color: #008800; font-weight: bold">for</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>n<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+  <span style="color: #333333">{</span>
+    <span style="color: #333399; font-weight: bold">int</span> leftPointer<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">while</span><span style="color: #333333">(</span>leftPointer<span style="color: #333333">&lt;</span>rightPointer<span style="color: #333333">)</span>
+    <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span><span style="color: #333333">(</span>a<span style="color: #333333">[</span>leftPointer<span style="color: #333333">]</span> <span style="color: #333333">&gt;</span> a<span style="color: #333333">[</span>leftPointer<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">])</span>
+      <span style="color: #333333">{</span>
+        <span style="color: #333399; font-weight: bold">int</span> temp <span style="color: #333333">=</span> a<span style="color: #333333">[</span>leftPointer<span style="color: #333333">];</span>
+        a<span style="color: #333333">[</span>leftPointer<span style="color: #333333">]</span> <span style="color: #333333">=</span> a<span style="color: #333333">[</span>leftPointer<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">];</span>
+        a<span style="color: #333333">[</span>leftPointer<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">]</span> <span style="color: #333333">=</span> temp<span style="color: #333333">;</span>
+      <span style="color: #333333">}</span>
+      leftPointer<span style="color: #333333">++;</span>
+    <span style="color: #333333">}</span>
+    rightPointer<span style="color: #333333">--;</span>
+  <span style="color: #333333">}</span>
+  <span style="color: #008800; font-weight: bold">return</span> a<span style="color: #333333">;</span>
+<span style="color: #333333">}</span>
+</pre></div>  
+          </p>
+        </div>
+
         <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
