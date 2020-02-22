@@ -146,6 +146,36 @@
           </p>
         </div>
 
+        <button class="accordion"><b>Insertion Sort</b><br>Explain the logic of insertion sort and implement code for it.</button>
+        <div class="panel">
+          <p>
+              Logic - In insertion sort, we start from the second array element and try to place it at its correct position in the subarray on the left so that the left array always remains sorted. This process is repeated from the second element till the last element of the array. This is called insertion sort because the element picked up is inserted at is correct position in the left subarray.<br>
+              <br>
+              From the coding point of view, we maintain two pointers, left pointer and the right pointer pointing to the first and last array elements. These left and right pointers remain static throughtout execution. We also maintain two more pointers, current pointer initially pointing to the second array element and previous pointer pointing to the position just before the position pointed by current pointer. The current pointer points to the element that has to be placed at its correct position in the left subarray (from 0 till currentPointer-1). The previous pointer compares the element at its index with the element at current pointer and if the element at current pointer is smaller than the element at previous pointer, we copy the element at previous pointer to the poisition next to the previous pointer and move the previous pointer one index left. This process is repeated till either the previous pointer reaches the first index of the array or till we encounter an element in the previous pointer whose value is smaller than the element at current pointer. In both these cases, we place the element pointed by current pointer to the position next to the position pointed by the previous pointer. This entire process is repeated till the current pointer reaches the last index of the array.
+              
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">public <span style="color: #007020">int</span>[] insertionSort(<span style="color: #007020">int</span> a[])
+{
+  <span style="color: #007020">int</span> leftPointer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+  <span style="color: #007020">int</span> rightPointer <span style="color: #333333">=</span> a<span style="color: #333333">.</span>length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+  <span style="color: #007020">int</span> currentPointer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+  <span style="color: #008800; font-weight: bold">while</span>(currentPointer<span style="color: #333333">&lt;=</span>rightPointer)
+  {
+    <span style="color: #007020">int</span> elementToBePlacedAtCorrectPosition <span style="color: #333333">=</span> a[currentPointer];
+    <span style="color: #007020">int</span> previousPointer <span style="color: #333333">=</span> currentPointer<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+    <span style="color: #008800; font-weight: bold">while</span>(previousPointer<span style="color: #333333">&gt;=</span>leftPointer <span style="color: #333333">&amp;&amp;</span> elementToBePlacedAtCorrectPosition<span style="color: #333333">&lt;</span>a[previousPointer])
+    {
+      a[previousPointer<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> a[previousPointer];
+      previousPointer<span style="color: #333333">--</span>;
+    }
+    a[previousPointer<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> elementToBePlacedAtCorrectPosition;
+    currentPointer<span style="color: #333333">++</span>;
+  }
+  <span style="color: #008800; font-weight: bold">return</span> a;
+}
+</pre></div>
+          </p>
+        </div>
+
         <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
