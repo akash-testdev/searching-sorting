@@ -176,6 +176,45 @@
           </p>
         </div>
 
+        <button class="accordion"><b>Selection Sort</b><br>Explain the logic of selection sort and implement code for it.</button>
+        <div class="panel">
+          <p>
+              Logic - In selection sort, in each iteration we find the smallest element of the array. In the first iteration, the smallest array element is placed at the first array index, in the second iteration, the second smallest element is placed at the second array index and so on.<br>
+              <br>
+              From the coding point of view, we maintain two pointers, left pointer and the right pointer pointing to the first and last array elements. We also maintain current pointer, which initially points to the left pointer and runs till it reaches the right pointer and figures out the smallest element between left and right pointers and also the index of the smallest element. Finally, the smallest element is swapped with the element pointed by left pointer and the left pointer is moved one inndex towards right. The process is repeated till the left pointer reaches the right pointer. 
+              
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">public <span style="color: #007020">int</span>[] selectionSort(<span style="color: #007020">int</span> a[])
+{
+  <span style="color: #007020">int</span> leftPointer <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+  <span style="color: #007020">int</span> rightPointer <span style="color: #333333">=</span> a<span style="color: #333333">.</span>length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+  
+  <span style="color: #008800; font-weight: bold">while</span>(leftPointer<span style="color: #333333">&lt;</span>rightPointer)
+  {
+    <span style="color: #007020">int</span> currentPointer <span style="color: #333333">=</span> leftPointer;
+    <span style="color: #007020">int</span> smallestElement <span style="color: #333333">=</span> a[currentPointer];
+    <span style="color: #007020">int</span> smallestElementPointer <span style="color: #333333">=</span> currentPointer;
+    <span style="color: #008800; font-weight: bold">while</span>(currentPointer<span style="color: #333333">&lt;=</span>rightPointer)
+    {
+      <span style="color: #008800; font-weight: bold">if</span>(a[currentPointer] <span style="color: #333333">&lt;</span> smallestElement)
+      {
+        smallestElement <span style="color: #333333">=</span> a[currentPointer];
+        smallestElementPointer <span style="color: #333333">=</span> currentPointer;
+      }
+      currentPointer<span style="color: #333333">++</span>;
+    }
+    <span style="color: #007020">int</span> temp <span style="color: #333333">=</span> a[leftPointer];
+    a[leftPointer] <span style="color: #333333">=</span> a[smallestElementPointer];
+    a[smallestElementPointer] <span style="color: #333333">=</span> temp;
+    leftPointer<span style="color: #333333">++</span>;
+  }
+  <span style="color: #008800; font-weight: bold">return</span> a;
+}
+</pre></div>
+
+            
+          </p>
+        </div>
+
         <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
